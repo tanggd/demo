@@ -2,6 +2,25 @@
 
 'use strict';
 
+
+// add your user config here
+// 设置启动端口
+const servicePort = 7001;
+// 允许通过ip访问
+const hostname = '0.0.0.0';
+
+const userConfig2 = {
+  // myAppName: 'egg',
+  cluster: {
+    listen: {
+      path: '',
+      port: servicePort,
+      hostname,
+    },
+  },
+};
+
+
 /**
  * @param {Egg.EggAppInfo} appInfo app info
  */
@@ -21,6 +40,7 @@ module.exports = appInfo => {
   // add your user config here
   const userConfig = {
     // myAppName: 'egg',
+    ...userConfig2
   };
 
   return {

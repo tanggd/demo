@@ -3,6 +3,6 @@ console.log('Local plugin config.');
 module.exports = {
   nacos: {
     enable: true,
-    path: '../app/plugins/nacos'
+    path: '../app/plugins/nacos.js'
   }
 };

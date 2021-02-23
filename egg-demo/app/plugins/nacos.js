@@ -16,12 +16,14 @@ module.exports = function (agent) {
     // 动态获取 IP 地址
     const ipAddr = address();
     // 我们当前应用的端口号
-    const port = 9763
+    const port = 7001
 
     // 服务名称，后面消费方调用的时候通过这个服务名进行服务查询。
     const providerServiceName = 'cloud:nacos-print-ssr';
     // nacos服务地址，我们刚刚在本地启动的服务地址是‘127.0.0.1:8848’
-    const nacosServerAddress = '127.0.0.1:8848';
+    // const nacosServerAddress = '127.0.0.1:8848';
+    const nacosServerAddress = 'http://10.12.102.26:8848';
+    // http://10.12.102.26:8848/nacos/
     // namespace: 名称空间必须在服务器上存在，可以自行新建。http://127.0.0.1:8848/nacos/#/namespace?dataId=&group=&appName=
     const providerNamespase = 'public';
     const client = new NacosNamingClient({
