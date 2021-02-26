@@ -1,0 +1,11 @@
+{
+  "application": {
+    "name": "nodejs.test.domain",
+    "host": "0.0.0.0",
+    "port": "8000"
+  },
+  "nacos": {
+    "service-list": "10.12.102.26:8848",
+    "namespace": "public"
+  }
+}

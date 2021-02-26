@@ -1,7 +1,9 @@
-'use strict';
+const Koa = require('koa')
+const app = new Koa()
 
-// https://github.com/nacos-group/nacos-sdk-nodejs
+app.use( async ( ctx ) => {
+  ctx.body = 'hello koa2'
+})
 
-// 注册消费服务
-const NacosNamingClient = require('nacos').NacosNamingClient;
-const logger = console;
+app.listen(3000)
+console.log('[demo] start-quick is starting at port 3000')
