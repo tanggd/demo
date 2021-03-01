@@ -29,13 +29,13 @@ const serviceName = 'nodejs.test.domain';
     ip: '0.0.0.0',
     port: 3000,
   });
-  console.log('clientclientclientclient--------', client)
+  // console.log('clientclientclientclient--------', client)
 
   // subscribe instance
-  // await client.subscribe(serviceName, hosts => {
-  //   console.log('----------subscribe---------------------')
-  //   console.log(hosts);
-  // });
+  await client.subscribe(serviceName, hosts => {
+    console.log('----------subscribe---------------------')
+    console.log(hosts);
+  });
 
   // deregister instance
   // await client.deregisterInstance(serviceName, {
@@ -44,9 +44,9 @@ const serviceName = 'nodejs.test.domain';
   // });
 
   // getAllInstances
-  // const allInstances = await client.getAllInstances(serviceName);
-  // console.log('-------allInstances--------')
-  // console.log(allInstances)
+  const allInstances = await client.getAllInstances(serviceName);
+  console.log('-------allInstances--------')
+  console.log(allInstances)
 
 })()
 

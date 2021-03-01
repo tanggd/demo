@@ -9,9 +9,11 @@
   "author": "tanggd <tanggd11@foxmail.com> (https://github.com/tanggd)",
   "license": "MIT",
   "devDependencies": {
-    "http-proxy-middleware": "^1.0.6"
+    "http-proxy-middleware": "^1.0.6",
+    "ip": "^1.1.5"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "nacos": "^2.1.0"
   }
 }
