@@ -1,18 +1,18 @@
-const { application } = require('./config')
+// const { application } = require('./config')
 module.exports = {
   devServer: {
-    port: application.port,
+    // port: application.port,
     proxy: {
       "/serviceApi": {
-        target: 'http://10.2.5.141:7002/',
+        target: 'http://10.10.77.93:8008/',
         changeOrigin: true,
         ws: true,
         pathRewrite: {
-          "/serviceApi": "/api"
+          "/serviceApi": ""
         }
       },
       "/api": {
-        target: 'xxx',
+        target: 'http://10.2.5.88:8081/',
         changeOrigin: true,
         ws: true
       },

@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-    <button @click="onReq">请求数据</button>
+    <button @click="onReqJava">请求数据java</button>
+    <button @click="onReqNode">请求数据node</button>
   </div>
 </template>
 
@@ -10,9 +11,19 @@ export default {
   name: 'Home',
   components: {},
   methods: {
-    onReq() {
+    onReqJava() {
       axios
-        .get('/serviceApi/getUser?ID=12345')
+        .get('/serviceApi/provider/helloProvider')
+        .then((res) => {
+          console.log(res)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
+    onReqNode() {
+      axios
+        .get('/serviceApi/nacos.provide.nodejs.test/api/getUser')
         .then((res) => {
           console.log(res)
         })

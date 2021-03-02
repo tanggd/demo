@@ -1,13 +1,12 @@
 const express = require('express')
 const { createProxyMiddleware } = require('http-proxy-middleware')
 const registerServiceInstance = require('./nacos')
-const getServiceInstances = require('./nacos-subscribe')
 
 const app = express()
 
 const port = 3000
 const appConfig = {
-  serviceName: 'nacos.consumer.vue.test',
+  serviceName: 'consumer.vue.test',
   port: port
 }
 const nacosConfig = {
@@ -17,18 +16,13 @@ const nacosConfig = {
 
 app.use(express.static('./public'))
 
-app.use('/serviceApi/:serviceName', createProxyMiddleware({
-  target: 'http://169.254.68.221:7002/',
+app.use('/serviceApi', createProxyMiddleware({
+  target: 'http://10.10.77.93:8008/',
   changeOrigin: false,
   ws: true,
   pathRewrite: {
-    '^/serviceApi': '/api'
+    '^/serviceApi': ''
   },
-  router: async function (req) {
-    const url = await getTargetUrl(req.params.serviceName)
-    console.log(url)
-    return url
-  }
 }))
 
 app.listen(port, () => {
@@ -37,14 +31,3 @@ app.listen(port, () => {
   // 注册服务
   registerServiceInstance(nacosConfig, appConfig)
 })
-
-async function getTargetUrl(serviceName) {
-  console.log(serviceName)
-  const instances = await getServiceInstances(nacosConfig, 'nacos.provide.nodejs.test' || serviceName)
-  // 注意为 instances 为空的情况，待处理
-  console.log('---------------22222----------------------')
-  console.log(instances)
-  const first = instances[0]
-  return `http://${first.ip}:${first.port}`
-  // return 'http://169.254.68.221:7001/'
-}

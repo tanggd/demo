@@ -8,9 +8,9 @@ const logger = console
 // 动态获取本机 IP 地址
 const ipAddr = address()
 
-const registerServiceInstance = async function (nacosConfig, appConfig, callback) {
-  const { serviceName, port } = appConfig
+const registerServiceInstance = async function (nacosConfig, appConfig) {
   const { serverList, namespace } = nacosConfig
+  const { serviceName, port } = appConfig
 
   // 新建客户端
   const client = new NacosNamingClient({
@@ -26,15 +26,6 @@ const registerServiceInstance = async function (nacosConfig, appConfig, callback
     ip: ipAddr,
     port: port,
   })
-
-  // subscribe instance
-  if (callback) {
-    await client.subscribe(serviceName, hosts => {
-      console.log('----------subscribe---------------------')
-      console.log(hosts)
-      callback(hosts)
-    })
-  }
 }
 
 module.exports = registerServiceInstance
