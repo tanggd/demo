@@ -1,5 +1,5 @@
 {
-  "name": "static-node",
+  "name": "dubbo-demo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,14 +8,7 @@
   },
   "author": "tanggd <tanggd11@foxmail.com> (https://github.com/tanggd)",
   "license": "MIT",
-  "devDependencies": {
-    "http-proxy-middleware": "^1.0.6",
-    "ip": "^1.1.5"
-  },
   "dependencies": {
-    "apache-dubbo-js": "^3.0.0-rc6",
-    "dubbo2.js": "^2.3.9",
-    "express": "^4.17.1",
-    "nacos": "^2.1.0"
+    "apache-dubbo-js": "^3.0.0-rc6"
   }
 }
