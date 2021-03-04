@@ -79,7 +79,7 @@ var go_1 = require("../common/go");
 var util_1 = require("../common/util");
 var registry_1 = require("./registry");
 var log = debug_1["default"]('dubbo:zookeeper');
-var ipAddress = ip_1["default"].address();
+var ipAddress = ip_1.address();
 var CHECK_TIME = 30 * 1000;
 var ZkRegistry = /** @class */ (function (_super) {
     __extends(ZkRegistry, _super);

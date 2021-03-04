@@ -23,7 +23,7 @@ export default {
     },
     onReqNode() {
       axios
-        .get('/serviceApi/nacos.provide.nodejs.test/api/getUser')
+        .get('/serviceApi/nacos.provide.nodejs.test/getUser')
         .then((res) => {
           console.log(res)
         })

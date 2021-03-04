@@ -3,7 +3,7 @@
  */
 const { application, nacos } = require('./config')
 const { address } = require('ip')
-const { NacosNamingClient } = require('nacos')
+const { NacosNamingClient, NacosConfigClient } = require('nacos')
 
 const logger = console
 
@@ -29,5 +29,31 @@ const registerServiceInstance = async () => {
   })
 }
 
+const publishConfig = async () => {
+  const configClient = new NacosConfigClient({
+    serverAddr: nacos['service-list'],
+  })
+
+  // publish config
+  const content = await configClient.publishSingle('gateway_config_json', 'refresh_config_json', JSON.stringify( {
+    "filters": [],
+    "id": serviceName,
+    "order": 0,
+    "predicates": [{
+      "args": {
+        "pattern": `/${serviceName}/**`
+      },
+      "name": "Path"
+    }],
+    "uri": `lb://${serviceName}`
+  }))
+  console.log('getConfig = ', content)
+
+
+}
+
 // 注册服务
 registerServiceInstance()
+
+// 发布配置
+publishConfig()

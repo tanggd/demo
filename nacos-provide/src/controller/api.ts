@@ -3,7 +3,8 @@ import { Context } from 'egg';
 import { UserService } from '../service/user';
 
 @Provide()
-@Controller('/api')
+// @Controller('/api')
+@Controller('/nacos.provide.nodejs.test')
 export class APIController {
   @Inject()
   ctx: Context;

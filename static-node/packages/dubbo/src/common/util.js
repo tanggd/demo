@@ -27,7 +27,7 @@ exports.__esModule = true;
 var events_1 = require("events");
 var ip_1 = require("ip");
 var pid = process.pid;
-var ipAddr = ip_1["default"].address();
+var ipAddr = ip_1.address();
 exports.msg = new events_1.EventEmitter();
 exports.noop = function () { };
 exports.isDevEnv = process.env.NODE_ENV !== 'production';
