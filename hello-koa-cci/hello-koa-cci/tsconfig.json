@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2017",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      // "apache-dubbo-js": ["/Users/skyline/Downloads/dubbo-js-master/packages/dubbo/src/"]
+      // "apache-dubbo-js": ["/usr/local/lib/node_modules/apache-dubbo-js/src/"]
+    }
+  }
+}

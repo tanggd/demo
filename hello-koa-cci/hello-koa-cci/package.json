@@ -1,0 +1,26 @@
+{
+  "name": "hello-koa",
+  "version": "1.0.0",
+  "description": "A simple demo",
+  "scripts": {
+    "debug:start": "DEBUG=dubbo* ts-node ./src/server.ts",
+    "start": "ts-node ./src/server.ts",
+    "dubbo-server": "ts-node ./src/dubbo/provider/dubbo.ts",
+    "debug:dubbo-server": "DEBUG=dubbo* ts-node ./src/dubbo/provider/dubbo.ts"
+  },
+  "keywords": [
+    "apache-dubbo-js"
+  ],
+  "author": "fengmi99@gmail.com",
+  "license": "Apache Licence 2.0",
+  "devDependencies": {
+    "@types/koa": "^2.11.4",
+    "@types/koa-router": "^7.4.1"
+  },
+  "dependencies": {
+    "apache-dubbo-js": "^3.0.0-rc6",
+    "ip": "^1.1.5",
+    "koa": "^2.4.1",
+    "koa-router": "^7.3.0"
+  }
+}

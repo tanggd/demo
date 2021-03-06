@@ -1,7 +1,8 @@
 <template>
   <div class="home">
-    <button @click="onReqJava">请求数据java</button>
-    <button @click="onReqNode">请求数据node</button>
+    <button @click="onReqJava">统一网关 to java</button>
+    <button @click="onReqNode">统一网关 to node</button>
+    <button @click="onReq">普通的请求</button>
   </div>
 </template>
 
@@ -24,6 +25,16 @@ export default {
     onReqNode() {
       axios
         .get('/serviceApi/nacos.provide.nodejs.test/getUser')
+        .then((res) => {
+          console.log(res)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
+    onReq() {
+      axios
+        .get('/api/nacos.provide.nodejs.test/getUser')
         .then((res) => {
           console.log(res)
         })
