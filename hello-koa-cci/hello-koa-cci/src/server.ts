@@ -28,10 +28,10 @@ router.get('/', ctx => {
 });
 
 router.get('/hello', async ctx => {
-  console.log('server.ts第31行::: dubbo.service.demoProvider.assdddd==========================',ctx, dubbo.service.demoProvider.test('test'));
-  debugger
-  let a = await dubbo.service.demoProvider.test('test');
-  console.log('server.ts第33行:::aaaaaaaaaaaaaaaaaaa', a);
+  // console.log('server.ts第31行::: dubbo.service.demoProvider.assdddd==========================',ctx, dubbo.service.demoProvider.test('test'));
+  // debugger
+  // let a = await dubbo.service.demoProvider.test('test');
+  // console.log('server.ts第33行:::aaaaaaaaaaaaaaaaaaa', a);
   const {res, err} = await dubbo.service.demoProvider.test('test');
   ctx.body = err ? err.message : res;
 });

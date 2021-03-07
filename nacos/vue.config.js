@@ -1,6 +1,6 @@
 const path = require('path')
 module.exports = {
-  outputDir: path.resolve(__dirname, "./koa2-server/public"),
+  outputDir: path.resolve(__dirname, "./server/app/view"),
   devServer: {
     proxy: {
       "/serviceApi": {

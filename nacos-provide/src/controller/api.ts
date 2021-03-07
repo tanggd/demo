@@ -15,6 +15,7 @@ export class APIController {
   @Get('/getUser')
   @Post('/get_user')
   async getUser(@Query() uid) {
+    console.log(123)
     const user = await this.userService.getUser({ uid });
     return {
       code: 200,
