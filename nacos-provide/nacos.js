@@ -56,4 +56,4 @@ const publishConfig = async () => {
 registerServiceInstance()
 
 // 发布配置
-publishConfig()
+// publishConfig()

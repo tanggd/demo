@@ -12,9 +12,13 @@ module.exports = {
         }
       },
       "/api": {
-        target: 'http://10.2.5.74:7001/',
+        target: 'http://10.2.5.153:7001',
+        // http://192.168.0.29
         changeOrigin: true,
-        ws: true
+        ws: true,
+        pathRewrite: {
+          "/api": ""
+        }
       },
     }
   },
