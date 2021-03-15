@@ -321,9 +321,20 @@ console.log(total.value)
 console.log(obj.page)
 ```
 
+为变量注解类型
+```typescript
+const total = ref<number>(0)
+const total2 = ref<number | string>(0)
 
-
-
+interface ObjInterface {
+      page: number
+      size: number
+    }
+    const obj = reactive<ObjInterface>({
+      page: 1,
+      size: 10,
+    })
+```
 
 ## 生命周期钩子函数
 

@@ -36,7 +36,7 @@ export const routes: Array<RouteConfig> = [
   {
     path: '/res-api',
     name: 'res-api',
-    component: () => import(/* webpackChunkName: "res-api" */ '../views/res-api')
+    component: () => import(/* webpackChunkName: "res-api" */ '../views/res-api.vue')
   },
   {
     path: '/about',
