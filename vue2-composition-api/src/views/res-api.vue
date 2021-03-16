@@ -38,14 +38,18 @@ export default defineComponent({
     const total2 = computed(() => {
       return total.value * 2;
     });
-    const readonlyType = readonly("readonly");
-    console.log(readonlyType);
+
+    const readonlyType = readonly(reactive({
+      age: 18
+    }));
+    console.log(readonlyType.age);
+    // readonlyType.total = 123
+
     const add = () => {
       total.value++;
       obj.page++;
 
       // obj.total += 2;
-      // readonlyType = 'readonly-2' // 报错，只读
     };
     //
     // 暴露给template使用

@@ -1,4 +1,3 @@
-
 import { defineComponent, ref } from "@vue/composition-api";
 export default defineComponent({
   setup() {
@@ -7,11 +6,21 @@ export default defineComponent({
       total.value++;
     };
 
-    return () => (
-      <div class="content">
-        total: {total.value}
-        <button on-click={add}>btn +1</button>
-      </div>
-    );
+    return () => {
+      return (
+        <div class="content">
+          total: {total.value}
+          <button on-click={add}>btn +1</button>
+        </div>
+      );
+    };
+
+    // return (props, slots, attrs, vnode) => {
+    //   // console.log(props, slots, attrs, vnode)
+    //   return (<div class="content">
+    //     total: {total.value}
+    //     <button on-click={add}>btn +1</button>
+    //   </div>
+    // )}
   }
 });
