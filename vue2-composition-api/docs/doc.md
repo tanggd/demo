@@ -250,8 +250,6 @@ export default defineComponent({
 - .tsx文件的修改会导致整个文档刷新，对开发效率有一定影响。建议使用.vue文件，不会刷新整个文档，而是局部刷新，对开发比较友好。
 - 另外建议使用template，非必要不使用render函数。
 
-
-
 插件提供的 api 有：
 
 ```javascript
@@ -306,9 +304,9 @@ exports.watchEffect = watchEffect;
 
 ## 响应式API
 
-### ref、reactive、computed、readonly
+有：ref、reactive、computed、readonly、watchEffect、watch
 
-使变量具有响应式。
+例子：
 
 ```javascript
 const total = ref(0)
@@ -327,32 +325,88 @@ const total = ref<number>(0)
 const total2 = ref<number | string>(0)
 
 interface ObjInterface {
-      page: number
-      size: number
-    }
-    const obj = reactive<ObjInterface>({
-      page: 1,
-      size: 10,
-    })
+    page: number
+    size: number
+}
+const obj = reactive<ObjInterface>({
+    page: 1,
+    size: 10,
+})
 ```
+
+其他方法使用类似，具体查看[官网](https://vue3js.cn/vue-composition-api/#%E5%93%8D%E5%BA%94%E5%BC%8F%E7%B3%BB%E7%BB%9F-api)具体用法。
 
 ## 生命周期钩子函数
 
+onBeforeMount、onMounted、onBeforeUpdate、onUpdated、onBeforeUnmount、onUnmounted
+
+注意与vue2 options的生命周期钩子函数的对照关系和区别。
+
 ## 依赖注入
+
+provide、inject
+
+用法和vue2提供的options用法类似。
+
+```js
+// 提供者：
+const themeRef = ref('dark')
+provide(ThemeSymbol, themeRef)
+
+// 使用者：
+const theme = inject(ThemeSymbol, ref('light'))
+watchEffect(() => {
+  console.log(`theme set to: ${theme.value}`)
+})
+```
 
 ## 模板 Refs
 
+```html
+<template>
+  <div ref="root"></div>
+</template>
+
+<script>
+  import { ref, onMounted } from 'vue'
+
+  export default {
+    setup() {
+      const root = ref(null)
+
+      onMounted(() => {
+        // 在渲染完成后, 这个 div DOM 会被赋值给 root ref 对象
+        console.log(root.value) // <div/>
+      })
+
+      return {
+        root,
+      }
+    },
+  }
+</script>
+```
+
 ## 响应式工具API
+
+unref、toRef、toRefs、isRef、isReactive、isReadonly
 
 ## 高级响应式工具API
 
-## 总结
+customRef、markRaw、shallowReactive、shallowReadonly、shallowRef、toRaw
 
-- 类型推导
-- 迁移优点
-- 建议使用.vue文件，尽量不使用.tsx，建议使用template，尽量不使用render。
+## 优势
+
+composition api优势：
+
+- 基于函数的api，灵活组合逻辑。
+
+- 与typescript结合度更高，具有友好的类型推导。
+- 可以避免了Mixin的种种缺点，更好的逻辑组织和逻辑复用。
+- `Composition API`对 `tree-shaking` 友好，代码也更容易压缩。（体现在vue3中）
 
 ## 参考学习
 
 - [@vue/composition-api github](https://github.com/vuejs/composition-api)
-- [官方composition-api文档](https://v3.vuejs.org/api/composition-api.html)
+- [官方composition-api文档](https://vue3js.cn/vue-composition-api/)
+
